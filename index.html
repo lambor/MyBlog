@@ -54,7 +54,7 @@
 					
 						<li><a href="/myblog/archives">Archives</a></li>
 					
-						<li><a href="/myblog/about">About</a></li>
+						<li><a href="/myblog/https://lambor.github.io/about/">About</a></li>
 					
 					<li>
  					
@@ -85,7 +85,7 @@
 		<a href="/myblog/about" title="nobody" target="_blank" itemprop="author">nobody</a>
 		
   <p class="article-time">
-    <time datetime="2016-09-18T08:20:09.177Z" itemprop="datePublished"> Published 2016-09-18</time>
+    <time datetime="2016-09-18T09:06:25.652Z" itemprop="datePublished"> Published 2016-09-18</time>
     
   </p>
 </header>
@@ -154,7 +154,7 @@
 		<a href="/myblog/about" title="nobody" target="_blank" itemprop="author">nobody</a>
 		
   <p class="article-time">
-    <time datetime="2016-09-18T08:20:09.175Z" itemprop="datePublished"> Published 2016-09-18</time>
+    <time datetime="2016-09-18T09:06:25.650Z" itemprop="datePublished"> Published 2016-09-18</time>
     
   </p>
 </header>
@@ -214,6 +214,73 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/myblog/2016/09/18/ubuntu_diary_06/" title="Ubuntu日记06-关于命令行中的空格" itemprop="url">Ubuntu日记06-关于命令行中的空格</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/myblog/about" title="nobody" target="_blank" itemprop="author">nobody</a>
+		
+  <p class="article-time">
+    <time datetime="2016-09-18T09:06:25.647Z" itemprop="datePublished"> Published 2016-09-18</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h1 id="关于命令行中的空格"><a href="#关于命令行中的空格" class="headerlink" title="关于命令行中的空格"></a>关于命令行中的空格</h1><p><strong>2016.6.30 重庆 雨</strong></p>
+<p>王垠有一篇博客提到过unix like system的缺点，批评它传递参数使用字符串而不是数据结构，导致学习操作很繁杂。<br>今天我总结一些命令行中空格导致了一些问题。</p>
+<h2 id="set命令"><a href="#set命令" class="headerlink" title="set命令"></a><code>set</code>命令</h2><p>比如,<code>set</code>等号两边都不能有空格<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ set TEST=1</div><div class="line">$ set | grep TEST</div><div class="line">_=TEST=1</div></pre></td></tr></table></figure></p>
+<p>左侧有空格，则没有该变量<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ set TEST =1</div><div class="line">$ set | grep TEST</div></pre></td></tr></table></figure></p>
+<p>右侧有空格，则也没有改变量<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ set TEST= 1</div><div class="line">$ set | grep TEST</div></pre></td></tr></table></figure></p>
+<p>但是右侧<strong>有空格</strong>但没有值，则有该变量<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ set TEST =</div><div class="line">$ set | grep TEST</div><div class="line">_=TEST=</div></pre></td></tr></table></figure></p>
+<p>比较右侧为空和右侧只有有空格,说明两种情况变量相同<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ set TEST_EMPTY=</div><div class="line">$ set TEST_SPACE=</div><div class="line">$ [$TEST_EMPTY -eq $TEST_SPACE]</div><div class="line">$ echo $?</div><div class="line">0</div></pre></td></tr></table></figure></p>
+<h2 id="路径中包含空格"><a href="#路径中包含空格" class="headerlink" title="路径中包含空格"></a>路径中包含空格</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ pwd</div><div class="line">/media/&lt;USER NAME&gt;/TOSHIBA EXT</div></pre></td></tr></table></figure>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/myblog/categories/Ubuntu日记/">Ubuntu日记</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/myblog/tags/ubuntu/">ubuntu</a><a href="/myblog/tags/recovery/">recovery</a><a href="/myblog/tags/passwd/">passwd</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/myblog/2016/09/18/ubuntu_diary_05/" title="Ubuntu日记05-双击运行bash" itemprop="url">Ubuntu日记05-双击运行bash</a>
   </h1>
   <p class="article-author">By
@@ -221,7 +288,7 @@
 		<a href="/myblog/about" title="nobody" target="_blank" itemprop="author">nobody</a>
 		
   <p class="article-time">
-    <time datetime="2016-09-18T08:20:09.173Z" itemprop="datePublished"> Published 2016-09-18</time>
+    <time datetime="2016-09-18T09:06:25.645Z" itemprop="datePublished"> Published 2016-09-18</time>
     
   </p>
 </header>
@@ -284,73 +351,6 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/myblog/2016/09/18/ubuntu_diary_06/" title="Ubuntu日记06-关于命令行中的空格" itemprop="url">Ubuntu日记06-关于命令行中的空格</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/myblog/about" title="nobody" target="_blank" itemprop="author">nobody</a>
-		
-  <p class="article-time">
-    <time datetime="2016-09-18T08:20:09.171Z" itemprop="datePublished"> Published 2016-09-18</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <h1 id="关于命令行中的空格"><a href="#关于命令行中的空格" class="headerlink" title="关于命令行中的空格"></a>关于命令行中的空格</h1><p><strong>2016.6.30 重庆 雨</strong></p>
-<p>王垠有一篇博客提到过unix like system的缺点，批评它传递参数使用字符串而不是数据结构，导致学习操作很繁杂。<br>今天我总结一些命令行中空格导致了一些问题。</p>
-<h2 id="set命令"><a href="#set命令" class="headerlink" title="set命令"></a><code>set</code>命令</h2><p>比如,<code>set</code>等号两边都不能有空格<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ set TEST=1</div><div class="line">$ set | grep TEST</div><div class="line">_=TEST=1</div></pre></td></tr></table></figure></p>
-<p>左侧有空格，则没有该变量<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ set TEST =1</div><div class="line">$ set | grep TEST</div></pre></td></tr></table></figure></p>
-<p>右侧有空格，则也没有改变量<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ set TEST= 1</div><div class="line">$ set | grep TEST</div></pre></td></tr></table></figure></p>
-<p>但是右侧<strong>有空格</strong>但没有值，则有该变量<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ set TEST =</div><div class="line">$ set | grep TEST</div><div class="line">_=TEST=</div></pre></td></tr></table></figure></p>
-<p>比较右侧为空和右侧只有有空格,说明两种情况变量相同<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ set TEST_EMPTY=</div><div class="line">$ set TEST_SPACE=</div><div class="line">$ [$TEST_EMPTY -eq $TEST_SPACE]</div><div class="line">$ echo $?</div><div class="line">0</div></pre></td></tr></table></figure></p>
-<h2 id="路径中包含空格"><a href="#路径中包含空格" class="headerlink" title="路径中包含空格"></a>路径中包含空格</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ pwd</div><div class="line">/media/&lt;USER NAME&gt;/TOSHIBA EXT</div></pre></td></tr></table></figure>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/myblog/categories/Ubuntu日记/">Ubuntu日记</a>
-</div>
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/myblog/tags/ubuntu/">ubuntu</a><a href="/myblog/tags/recovery/">recovery</a><a href="/myblog/tags/passwd/">passwd</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
       <a href="/myblog/2016/09/18/ubuntu_diary_04/" title="Ubuntu日记04-JAVA安装" itemprop="url">Ubuntu日记04-JAVA安装</a>
   </h1>
   <p class="article-author">By
@@ -358,7 +358,7 @@
 		<a href="/myblog/about" title="nobody" target="_blank" itemprop="author">nobody</a>
 		
   <p class="article-time">
-    <time datetime="2016-09-18T08:20:09.170Z" itemprop="datePublished"> Published 2016-09-18</time>
+    <time datetime="2016-09-18T09:06:25.643Z" itemprop="datePublished"> Published 2016-09-18</time>
     
   </p>
 </header>
@@ -420,7 +420,7 @@
 		<a href="/myblog/about" title="nobody" target="_blank" itemprop="author">nobody</a>
 		
   <p class="article-time">
-    <time datetime="2016-09-18T08:20:09.166Z" itemprop="datePublished"> Published 2016-09-18</time>
+    <time datetime="2016-09-18T09:06:25.639Z" itemprop="datePublished"> Published 2016-09-18</time>
     
   </p>
 </header>
@@ -484,7 +484,7 @@
 		<a href="/myblog/about" title="nobody" target="_blank" itemprop="author">nobody</a>
 		
   <p class="article-time">
-    <time datetime="2016-09-18T08:20:09.164Z" itemprop="datePublished"> Published 2016-09-18</time>
+    <time datetime="2016-09-18T09:06:25.636Z" itemprop="datePublished"> Published 2016-09-18</time>
     
   </p>
 </header>
@@ -547,7 +547,7 @@
 		<a href="/myblog/about" title="nobody" target="_blank" itemprop="author">nobody</a>
 		
   <p class="article-time">
-    <time datetime="2016-09-18T08:20:09.159Z" itemprop="datePublished"> Published 2016-09-18</time>
+    <time datetime="2016-09-18T09:06:25.631Z" itemprop="datePublished"> Published 2016-09-18</time>
     
   </p>
 </header>
@@ -614,7 +614,7 @@
 		<a href="/myblog/about" title="nobody" target="_blank" itemprop="author">nobody</a>
 		
   <p class="article-time">
-    <time datetime="2016-09-18T08:20:09.158Z" itemprop="datePublished"> Published 2016-09-18</time>
+    <time datetime="2016-09-18T09:06:25.627Z" itemprop="datePublished"> Published 2016-09-18</time>
     
   </p>
 </header>
@@ -674,7 +674,7 @@
 		<a href="/myblog/about" title="nobody" target="_blank" itemprop="author">nobody</a>
 		
   <p class="article-time">
-    <time datetime="2016-09-18T08:20:09.153Z" itemprop="datePublished"> Published 2016-09-18</time>
+    <time datetime="2016-09-18T09:06:25.623Z" itemprop="datePublished"> Published 2016-09-18</time>
     
   </p>
 </header>
