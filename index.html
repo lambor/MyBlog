@@ -1,0 +1,1035 @@
+
+ <!DOCTYPE HTML>
+<html >
+<head>
+  <meta charset="UTF-8">
+  
+    <title>Blogs</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="nobody">
+    
+
+    
+    <meta property="og:type" content="website">
+<meta property="og:title" content="Blogs">
+<meta property="og:url" content="http://lambor.github.io/myblog/index.html">
+<meta property="og:site_name" content="Blogs">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Blogs">
+
+    
+    <link rel="alternative" href="/atom.xml" title="Blogs" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/myblog/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/myblog/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/myblog/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/myblog/css/style.css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/myblog/"><img src="/myblog/img/logo.png" alt="Blogs" title="Blogs"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/myblog/" title="Blogs">Blogs</a></h1>
+				<h2 class="blog-motto"></h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/myblog/">Home</a></li>
+					
+						<li><a href="/myblog/archives">Archives</a></li>
+					
+						<li><a href="/myblog/about">About</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="hidden" name="q" value="site:lambor.github.io/myblog">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main">
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/myblog/2016/09/18/ubuntu_diary_08/" title="Ubuntu日记08-对bash的一些错误认识" itemprop="url">Ubuntu日记08-对bash的一些错误认识</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/myblog/about" title="nobody" target="_blank" itemprop="author">nobody</a>
+		
+  <p class="article-time">
+    <time datetime="2016-09-18T08:20:09.177Z" itemprop="datePublished"> Published 2016-09-18</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h1 id="对bash的一些错误认识"><a href="#对bash的一些错误认识" class="headerlink" title="对bash的一些错误认识"></a>对bash的一些错误认识</h1><p><strong>2016.9.1 重庆 阴</strong></p>
+<p>使用bash已经有一段时间了，而且断断续续积累一些使用bash的经验，<br>但是仍然有一些概念没有搞清楚，所以今天抽空总结纠正一下。</p>
+<h3 id="“-gt-”-vs-“-”"><a href="#“-gt-”-vs-“-”" class="headerlink" title="“&gt;” vs “|”"></a>“&gt;” vs “|”</h3><p><a href="http://askubuntu.com/questions/172982/what-is-the-difference-between-redirection-and-pipe" target="_blank" rel="external">What is the difference between “Redirection” and “Pipe”?</a></p>
+<p><code>cmd1 &gt; tempfile &amp;&amp; cmd2 &lt; tempfile</code> 等价于 <code>cmd1 | cmd2</code><br>然而使用 <code>cmd1 &gt; cmd2</code>，只会创建一个名为cmd2文件，并将cmd1的stdout输出写入cmd2文件。</p>
+<p>我的理解是，<code>&gt;</code>一端为file，一端为有input或者output的command，而<code>|</code>是两端都为command。</p>
+<h3 id="“-”-vs-“-xargs”"><a href="#“-”-vs-“-xargs”" class="headerlink" title="“|” vs “|xargs”"></a>“|” vs “|xargs”</h3><p><a href="http://superuser.com/questions/600253/why-is-xargs-necessary" target="_blank" rel="external">Why is xargs necessary?</a></p>
+<p>一些command需要以stdin输入，一些command需用args作为输入。</p>
+<p>if a command needs argument passed instead of input on stdin you use xargs.</p>
+<h3 id="“strace-xxx-head-2”-head-not-work"><a href="#“strace-xxx-head-2”-head-not-work" class="headerlink" title="“strace xxx | head -2” head not work"></a>“strace xxx | head -2” head not work</h3><p>有时候一些command的输出不能grep或者head等，可能因为该command是通过stderr输出。</p>
+<p>此时使用<code>strace xxx 2&gt;&amp;1 | head -2</code>。</p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/myblog/categories/Ubuntu日记/">Ubuntu日记</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/myblog/tags/misunderstanding/">misunderstanding</a><a href="/myblog/tags/ubuntu/">ubuntu</a><a href="/myblog/tags/bash/">bash</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/myblog/2016/09/18/ubuntu_diary_07/" title="Raspberry日记01-树莓派开wifi热点" itemprop="url">Raspberry日记01-树莓派开wifi热点</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/myblog/about" title="nobody" target="_blank" itemprop="author">nobody</a>
+		
+  <p class="article-time">
+    <time datetime="2016-09-18T08:20:09.175Z" itemprop="datePublished"> Published 2016-09-18</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h1 id="Raspberry"><a href="#Raspberry" class="headerlink" title="Raspberry"></a>Raspberry</h1><h2 id="PI到手"><a href="#PI到手" class="headerlink" title="PI到手"></a>PI到手</h2><p>2014.8.25 下午 快递到，组装了亚克力盒子，安装了系统，初始了系统。</p>
+<h2 id="内网连PI"><a href="#内网连PI" class="headerlink" title="内网连PI"></a>内网连PI</h2><p>使用Advanced IP Scanner V2搜索其内网的ip,然后通过putty进行SSH连接到PI</p>
+<h2 id="外网连接PI"><a href="#外网连接PI" class="headerlink" title="外网连接PI"></a>外网连接PI</h2><p><a href="http://blog.csdn.net/kongdefei5000/article/details/19137125" target="_blank" rel="external">http://blog.csdn.net/kongdefei5000/article/details/19137125</a><br>参考其方法，使得PI连接外网，并通过putty安装了vnc，进行图形桌面连接</p>
+<h2 id="无线wifi连接"><a href="#无线wifi连接" class="headerlink" title="无线wifi连接"></a>无线wifi连接</h2><p><a href="http://www.educity.cn/wenda/565819.html" target="_blank" rel="external">http://www.educity.cn/wenda/565819.html</a><br><a href="http://blog.sina.com.cn/s/blog_488a3b1e0101ajw0.html" target="_blank" rel="external">http://blog.sina.com.cn/s/blog_488a3b1e0101ajw0.html</a></p>
+<p>通过wifi设置后的PI，只要启动前插上网线，仍能 使用方法2(通过PC，PI分别网线连接路由器，使用putty内网登陆）和方法3(PC和PI网线连接，PC无线连wifi，用putty外网登陆？)</p>
+<h2 id="ubuntu登陆PI"><a href="#ubuntu登陆PI" class="headerlink" title="ubuntu登陆PI"></a>ubuntu登陆PI</h2><p>使用nmap查询PI的IP，ubuntu已安装openssh-client，使用命令ssh pi@<em><ip>*</ip></em>登陆<br>同时安装使用vncviewer来桌面远程连接PI，命令是vncviewer</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nmap -sT -p 22 -oG - 172.24.106.* | grep open</div></pre></td></tr></table></figure>
+<p>nmap命令使用<a href="http://www.2cto.com/Article/201102/84402.html" target="_blank" rel="external">http://www.2cto.com/Article/201102/84402.html</a></p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/myblog/categories/Raspberry日记/">Raspberry日记</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/myblog/tags/wifi/">wifi</a><a href="/myblog/tags/hotspot/">hotspot</a><a href="/myblog/tags/raspberry/">raspberry</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/myblog/2016/09/18/ubuntu_diary_05/" title="Ubuntu日记05-双击运行bash" itemprop="url">Ubuntu日记05-双击运行bash</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/myblog/about" title="nobody" target="_blank" itemprop="author">nobody</a>
+		
+  <p class="article-time">
+    <time datetime="2016-09-18T08:20:09.173Z" itemprop="datePublished"> Published 2016-09-18</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h1 id="双击运行bash-script"><a href="#双击运行bash-script" class="headerlink" title="双击运行bash script"></a>双击运行bash script</h1><p><strong>2016.4.12 下午 重庆 阴</strong></p>
+<p>原来使用的是atom editor，但是真的很卡，应该是因为实现方式的原因。atom 就好像是一个super browser.于是我又回到了sublime。</p>
+<p>但是ubuntu 下的 sublime有一个bug，不能使用输入法，所以不能使用中文.万能的网友有对应的方法解决该问题：<a href="https://github.com/lyfeyaj/sublime-text-imfix。" target="_blank" rel="external">https://github.com/lyfeyaj/sublime-text-imfix。</a>  </p>
+<p>但是该解决方法还是有局限性的，只能使用命令行<code>subl</code>启动的ST才能使用中文，如果从启动器中启动还是不行。于是我就在桌面建了sublime.sh:  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#!/bin/bash</span></div><div class="line">subl</div></pre></td></tr></table></figure>
+<p>然后<code>sudo chmod +x ./sublime.sh</code>使sublime.sh能够运行。但是双击点开，仍然还是编辑状态。</p>
+<p>万能的网友又帮助了我：<a href="http://askubuntu.com/questions/668079/how-to-make-a-sh-file-executable-by-double-click-in-ubuntu-14-04" target="_blank" rel="external"> 文件浏览器 Edit -&gt; Preferences -&gt; Behavior. Check “Run executable files when they are opened”</a><br>然后就能双击运行bash script。  </p>
+<blockquote>
+<p>注：<br>ubuntu中应用的工具栏都是位于屏幕顶端的状态栏上，和Windows有区别。</p>
+<p>总结：<br>我的sublime使用的是sublime3，所以控制台安装Package Control时要注意（ST3好像使用的是python3）。我现在使用的plugin包括：<br>Markdown Editing和OmniMarkupPreviewer（超好用，实时的），Terminal。</p>
+</blockquote>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/myblog/categories/Ubuntu日记/">Ubuntu日记</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/myblog/tags/ubuntu/">ubuntu</a><a href="/myblog/tags/双击运行/">双击运行</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/myblog/2016/09/18/ubuntu_diary_06/" title="Ubuntu日记06-关于命令行中的空格" itemprop="url">Ubuntu日记06-关于命令行中的空格</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/myblog/about" title="nobody" target="_blank" itemprop="author">nobody</a>
+		
+  <p class="article-time">
+    <time datetime="2016-09-18T08:20:09.171Z" itemprop="datePublished"> Published 2016-09-18</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h1 id="关于命令行中的空格"><a href="#关于命令行中的空格" class="headerlink" title="关于命令行中的空格"></a>关于命令行中的空格</h1><p><strong>2016.6.30 重庆 雨</strong></p>
+<p>王垠有一篇博客提到过unix like system的缺点，批评它传递参数使用字符串而不是数据结构，导致学习操作很繁杂。<br>今天我总结一些命令行中空格导致了一些问题。</p>
+<h2 id="set命令"><a href="#set命令" class="headerlink" title="set命令"></a><code>set</code>命令</h2><p>比如,<code>set</code>等号两边都不能有空格<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ set TEST=1</div><div class="line">$ set | grep TEST</div><div class="line">_=TEST=1</div></pre></td></tr></table></figure></p>
+<p>左侧有空格，则没有该变量<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ set TEST =1</div><div class="line">$ set | grep TEST</div></pre></td></tr></table></figure></p>
+<p>右侧有空格，则也没有改变量<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ set TEST= 1</div><div class="line">$ set | grep TEST</div></pre></td></tr></table></figure></p>
+<p>但是右侧<strong>有空格</strong>但没有值，则有该变量<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ set TEST =</div><div class="line">$ set | grep TEST</div><div class="line">_=TEST=</div></pre></td></tr></table></figure></p>
+<p>比较右侧为空和右侧只有有空格,说明两种情况变量相同<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ set TEST_EMPTY=</div><div class="line">$ set TEST_SPACE=</div><div class="line">$ [$TEST_EMPTY -eq $TEST_SPACE]</div><div class="line">$ echo $?</div><div class="line">0</div></pre></td></tr></table></figure></p>
+<h2 id="路径中包含空格"><a href="#路径中包含空格" class="headerlink" title="路径中包含空格"></a>路径中包含空格</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ pwd</div><div class="line">/media/&lt;USER NAME&gt;/TOSHIBA EXT</div></pre></td></tr></table></figure>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/myblog/categories/Ubuntu日记/">Ubuntu日记</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/myblog/tags/ubuntu/">ubuntu</a><a href="/myblog/tags/recovery/">recovery</a><a href="/myblog/tags/passwd/">passwd</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/myblog/2016/09/18/ubuntu_diary_04/" title="Ubuntu日记04-JAVA安装" itemprop="url">Ubuntu日记04-JAVA安装</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/myblog/about" title="nobody" target="_blank" itemprop="author">nobody</a>
+		
+  <p class="article-time">
+    <time datetime="2016-09-18T08:20:09.170Z" itemprop="datePublished"> Published 2016-09-18</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h1 id="关于安装Oracle-Java"><a href="#关于安装Oracle-Java" class="headerlink" title="关于安装Oracle Java"></a>关于安装Oracle Java</h1><p>今天需要安装Oracle的JAVA8，不需要将openjdk卸载，可直接安装oracle java8 installer.</p>
+<p>然后为了找到installer把jdk安装到哪了，用which javac找到javac symbolic link，然后一直file，直到找到最后的javac位置.</p>
+<p>关于java版本的选择</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo update-alternatives --config java</div><div class="line">sudo update-alternatives --config javac</div></pre></td></tr></table></figure>
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/myblog/categories/Ubuntu日记/">Ubuntu日记</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/myblog/tags/ubuntu/">ubuntu</a><a href="/myblog/tags/java-home/">java_home</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/myblog/2016/09/18/ubuntu_diary_03/" title="Ubuntu日记03-APT Log" itemprop="url">Ubuntu日记03-APT Log</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/myblog/about" title="nobody" target="_blank" itemprop="author">nobody</a>
+		
+  <p class="article-time">
+    <time datetime="2016-09-18T08:20:09.166Z" itemprop="datePublished"> Published 2016-09-18</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h1 id="关于APT-Log"><a href="#关于APT-Log" class="headerlink" title="关于APT Log"></a>关于APT Log</h1><p><strong>2016.4.6 晚 重庆 阴</strong></p>
+<p>下午干了一件很刺激的事：apt-get autoremove<br>一下将很多的软件包给删了。当时就觉得不对，于是上网一搜吓得我一身冷汗。</p>
+<p>因为重启后发现自己的网络管理也打不开了，更别说用VPN去google，这时候我想到了BING,搜到了怎么找到apt操作的历史：<a href="http://ubuntuforums.org/showthread.php?t=2258741" target="_blank" rel="external">http://ubuntuforums.org/showthread.php?t=2258741</a></p>
+<p>于是自己写了一个简单的python脚本，用来将历史中的autoremove包名总结出来。最后再apt-get install.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#从history.log中找到的当时autoremove卸载的包，内容省略</span></div><div class="line">packages = <span class="string">"libqt5script5:amd64 (5.4.2+dfsg-4), libkf5completion5:amd64 (5.15.0-0ubuntu1), kpackagelauncherqml:amd64 (5.15.0-0ubuntu1), libfam0:amd64 (2.7.0-17.1)..."</span></div><div class="line"></div><div class="line">final_string = <span class="string">""</span></div><div class="line"><span class="keyword">for</span> package <span class="keyword">in</span> packages.split(<span class="string">","</span>):</div><div class="line">    final_string += package.split(<span class="string">":"</span>)[<span class="number">0</span>]</div><div class="line"><span class="keyword">print</span> final_string</div></pre></td></tr></table></figure>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/myblog/categories/Ubuntu日记/">Ubuntu日记</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/myblog/tags/ubuntu/">ubuntu</a><a href="/myblog/tags/apt/">apt</a><a href="/myblog/tags/log/">log</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/myblog/2016/09/18/ubuntu_diary_02/" title="Ubuntu日记02-WIFI hotspot" itemprop="url">Ubuntu日记02-WIFI hotspot</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/myblog/about" title="nobody" target="_blank" itemprop="author">nobody</a>
+		
+  <p class="article-time">
+    <time datetime="2016-09-18T08:20:09.164Z" itemprop="datePublished"> Published 2016-09-18</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h1 id="ubuntu-15-10-wifi-hotspot"><a href="#ubuntu-15-10-wifi-hotspot" class="headerlink" title="ubuntu 15.10 wifi hotspot"></a>ubuntu 15.10 wifi hotspot</h1><p><strong>2016.4.6 重庆 阴</strong></p>
+<p>我想说的是在ubuntu上开wifi热点真是麻烦。原来有ap-hotspot，然后就去查了一下发现已停止更新了，并且15.10的没有安装源。然后我就找到了他推荐的create_ap.</p>
+<p>安装倒是很简单，但是使用时会报错，表示没有找到hostapd，然后在工程的howto路径找到了解决方法。（注意：命令行有一定出入，因为使用的时gitclone所以可能有版本更新，所以把命令中的版本号改成相应的就行了）然后在make时报错：fatal error: netlink/genl/genl.h: No such file or directory.然后找到了相应解决方法.然后就运行create_ap wlxe84e062010e1 enp3s0 ahaha 789456123 就行了。</p>
+<p>总结，自己真能折腾。折腾中发现了apt-file这个工具，可以寻找缺失的dependecies.</p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/myblog/categories/Ubuntu日记/">Ubuntu日记</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/myblog/tags/ubuntu/">ubuntu</a><a href="/myblog/tags/wifi/">wifi</a><a href="/myblog/tags/hotspot/">hotspot</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/myblog/2016/09/18/ubuntu_diary_01/" title="Ubuntu日记01-修复模式" itemprop="url">Ubuntu日记01-修复模式</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/myblog/about" title="nobody" target="_blank" itemprop="author">nobody</a>
+		
+  <p class="article-time">
+    <time datetime="2016-09-18T08:20:09.159Z" itemprop="datePublished"> Published 2016-09-18</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h1 id="使用ubuntu修复模式"><a href="#使用ubuntu修复模式" class="headerlink" title="使用ubuntu修复模式"></a>使用ubuntu修复模式</h1><p><strong>2016.4.5 重庆 阴</strong></p>
+<p>今天使用ubuntu时遇到了一种启动不了的情况，因为自己根据网上的教程修改了/etc/modules文件，然而启动式发生错误，导致不能启动。 因为自己原来遇到过忘记密码进不去的情况，所以大致知道怎么解决。</p>
+<ol>
+<li>在grub启动中选择advanced options -&gt; recovery mode (don’t press ‘enter’ key!) -&gt; press ‘e’ key enter edit mode.</li>
+<li>修改其中的”ro recovery nomodeset”为”rw single init=/bin/bash”, then press ‘ctrl+X’ and you will get a bash shell as root.</li>
+<li>如果你想要修改自己的密码直接使用 passwd 命令</li>
+</ol>
+<p>参考：<a href="http://taobao3ef.blog.163.com/" target="_blank" rel="external">http://taobao3ef.blog.163.com/</a></p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/myblog/categories/Ubuntu日记/">Ubuntu日记</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/myblog/tags/ubuntu/">ubuntu</a><a href="/myblog/tags/recovery/">recovery</a><a href="/myblog/tags/passwd/">passwd</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/myblog/2016/09/18/hello-world/" title="Hello World" itemprop="url">Hello World</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/myblog/about" title="nobody" target="_blank" itemprop="author">nobody</a>
+		
+  <p class="article-time">
+    <time datetime="2016-09-18T08:20:09.158Z" itemprop="datePublished"> Published 2016-09-18</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h1 id="My-First-Blog"><a href="#My-First-Blog" class="headerlink" title="My First Blog"></a>My First Blog</h1><p>Hello World.</p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/myblog/categories/talk/">talk</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/myblog/tags/test/">test</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/myblog/2016/09/18/c_program_diary_01/" title="C program 日记01-理解const和引出的问题" itemprop="url">C program 日记01-理解const和引出的问题</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/myblog/about" title="nobody" target="_blank" itemprop="author">nobody</a>
+		
+  <p class="article-time">
+    <time datetime="2016-09-18T08:20:09.153Z" itemprop="datePublished"> Published 2016-09-18</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h1 id="理解const和引出的问题"><a href="#理解const和引出的问题" class="headerlink" title="理解const和引出的问题"></a>理解const和引出的问题</h1><p><strong>2016.9.18 重庆 多云</strong></p>
+<p>开始拾起原来的一些东西，并且纠正自己原来一些不够深入的理解,从C语言开始。</p>
+<h3 id="const关键字"><a href="#const关键字" class="headerlink" title="const关键字"></a>const关键字</h3><p>C中的<code>const</code>关键字和JAVA中的<code>final</code>关键字有着相似的功能，表示被修饰的对象（不是面向对象中的”对象”）的内容不会变化，被修饰的函数不会有副作用。</p>
+<h3 id="const修饰字符串指针"><a href="#const修饰字符串指针" class="headerlink" title="const修饰字符串指针"></a>const修饰字符串指针</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> <span class="keyword">char</span> *o = <span class="string">"hello there"</span>;</div><div class="line"><span class="keyword">char</span> <span class="keyword">const</span> *o = <span class="string">"hello there"</span>;</div><div class="line"><span class="keyword">char</span>* <span class="keyword">const</span> q = <span class="string">"hello there"</span>;</div><div class="line"></div><div class="line">o[<span class="number">0</span>] = <span class="string">'o'</span>;</div><div class="line">p[<span class="number">0</span>] = <span class="string">'p'</span>;</div><div class="line">q[<span class="number">0</span>] = <span class="string">'q'</span>;</div></pre></td></tr></table></figure>
+<p>对于上述的三种字符串声明方式，gcc都是可以编译通过的。</p>
+<p>但是对于三种修改字符串值的方法都是错误的：第一种和第二种编译不会通过，第三种编译通过，运行出现<strong>segment fault</strong>错误。</p>
+<p>原因：</p>
+<p>前两种声明方法效果是相同，都是声明了一个指向<strong>const characters</strong>的pointer，所以<code>const</code>修饰的是<code>*o</code>而不是<code>o</code>，即修饰的是”hello there”，所以<code>o[0] = &#39;o&#39;;</code>或者<code>p[0] = &#39;p&#39;;</code>对const characters进行修改是不被允许的，所以在gcc的语意分析(我猜的)被发现而不通过编译。</p>
+<p>第三种声明方式，则是声明了一个指向characters的<strong>const pointer</strong>，所以<code>const</code>修饰的是<code>o</code>而不是characters，于是<code>q[0] = &#39;q&#39;</code>在语意上是正确的，所以gcc编译通过。</p>
+<h3 id="对指针的一点理解"><a href="#对指针的一点理解" class="headerlink" title="对指针的一点理解"></a>对指针的一点理解</h3><p>原来我以为<code>char *</code>可以看作是一种数据类型，比如字符串指针类型，这是当时的有偏差的理解，其实<code>*</code>一直都是指针运算符，且<code>*</code>运算符的优先级大于<code>=</code>，所以我认为此处<code>char *o = &quot;hello there&quot;;</code>先声明了”指针变量”<code>o</code>,并且要赋值<code>o</code>,但用户没有能力来管理指针<code>o</code>的确值，所以c语言就提供了间接的方式，及<code>*o = &quot;hello there&quot;</code>，及指针<code>o</code>的取值是字符串”hello there”的地址，然后使用<code>char</code>来限定使用<code>*(o+1)</code>,<code>o[1]</code>来取值时值存储大小，偏移大小等问题。</p>
+<h3 id="关于segment-fault"><a href="#关于segment-fault" class="headerlink" title="关于segment fault"></a>关于segment fault</h3><p>维基百科对于<a href="https://en.wikipedia.org/wiki/Segmentation_fault" target="_blank" rel="external">segment fault</a>造成的原因有列举:</p>
+<blockquote>
+<ol>
+<li>Writing to read-only memory</li>
+<li>Null pointer dereference</li>
+<li>Buffer overflow</li>
+<li>Stack overflow</li>
+</ol>
+</blockquote>
+<p>对于第三种<code>q[0] = &#39;q&#39;;</code>，发生segment fault的原因是上述第一种原因。<br>使用<code>strace</code>或者<code>gdb</code>分析程序出错原因。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"># part of gdb output</div><div class="line">(gdb) r</div><div class="line">Starting program: /home/lambor/test/test_const/a.out </div><div class="line"></div><div class="line">Program received signal SIGSEGV, Segmentation fault.</div><div class="line">0x0000000000400501 in main () at test.c:3</div><div class="line">3		q[0] = &apos;q&apos;;</div><div class="line">(gdb) print q</div><div class="line">$1 = 0x400594 &quot;hello there&quot;</div></pre></td></tr></table></figure>
+<p>发现错误代码时，变量<code>q</code>的值为0x400594，即字符串”hello there”分布在内存0x400594处。</p>
+<p>然后使用<code>objdump</code>来查看程序的段分布。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"># part of objdump output</div><div class="line">$ objdump -h ./a.out</div><div class="line"></div><div class="line">Idx Name          Size      VMA               LMA               File off  Algn</div><div class="line">...</div><div class="line"> 14 .rodata       00000012  0000000000400590  0000000000400590  00000590  2**2</div><div class="line">                  CONTENTS, ALLOC, LOAD, READONLY, DATA</div><div class="line">...</div></pre></td></tr></table></figure>
+<p>所以字符串”hello there” 位于 “.rodata” 段,数据是只读, 所以修改会触发segment fault。</p>
+<h3 id="关于mutable-characters"><a href="#关于mutable-characters" class="headerlink" title="关于mutable characters"></a>关于mutable characters</h3><p>我首先想到 gcc 的 “<strong>attribute</strong>“机制，将数据放入 writeable 段中，比如”.data”段</p>
+<p>首先 <strong>attribute</strong>((section())) 不能修饰局部变量。</p>
+<p>我的两种<strong>错误</strong>尝试：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">char * const q = &quot;hello, world!&quot; __attribute__((section(&quot;.data&quot;)));</div></pre></td></tr></table></figure></p>
+<p>语法不正确，编译不通过的。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">char * const q __attribute__((section(&quot;.data&quot;))) = &quot;hello, world!&quot; ;</div></pre></td></tr></table></figure></p>
+<p>语意不正确，而且编译器直接报warning，并忽略。</p>
+<p>后来通过查找，发现<a href="https://gcc.gnu.org/ml/gcc/2005-04/msg01257.html" target="_blank" rel="external">老版本的gcc (version &lt;= 4)支持功能 writeable-strings clarification</a></p>
+<p>需要使用”-fwriteable-strings”。但是现在取消了该功能，建议使用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">char mutable_chars[] = &#123;&quot;hello there&quot;&#125;;</div></pre></td></tr></table></figure>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/myblog/categories/C语言日记/">C语言日记</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/myblog/tags/gcc/">gcc</a><a href="/myblog/tags/const/">const</a><a href="/myblog/tags/segment-fault/">segment_fault</a><a href="/myblog/tags/misunderstanding/">misunderstanding</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+
+  <nav id="page-nav" class="clearfix">
+    <span class="page-number current">1</span><a class="page-number" href="/myblog/page/2/">2</a><a class="extend next" rel="next" href="/myblog/page/2/">Next<span></span></a>
+  </nav>
+
+</div>
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
+  
+
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">Categories</p>
+		<ul>
+		
+		  
+			<li><a href="/myblog/categories/Android源码/" title="Android源码">Android源码<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/myblog/categories/C语言日记/" title="C语言日记">C语言日记<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/myblog/categories/Raspberry日记/" title="Raspberry日记">Raspberry日记<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/myblog/categories/Ubuntu日记/" title="Ubuntu日记">Ubuntu日记<sup>7</sup></a></li>
+		  
+		
+		  
+			<li><a href="/myblog/categories/talk/" title="talk">talk<sup>1</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">Tags</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/myblog/tags/ubuntu/" title="ubuntu">ubuntu<sup>7</sup></a></li>
+			
+		
+			
+				<li><a href="/myblog/tags/recovery/" title="recovery">recovery<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/myblog/tags/misunderstanding/" title="misunderstanding">misunderstanding<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/myblog/tags/passwd/" title="passwd">passwd<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/myblog/tags/wifi/" title="wifi">wifi<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/myblog/tags/hotspot/" title="hotspot">hotspot<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/myblog/tags/android/" title="android">android<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/myblog/tags/test/" title="test">test<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/myblog/tags/build/" title="build">build<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/myblog/tags/source/" title="source">source<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/myblog/tags/gcc/" title="gcc">gcc<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/myblog/tags/const/" title="const">const<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/myblog/tags/segment-fault/" title="segment_fault">segment_fault<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/myblog/tags/apt/" title="apt">apt<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/myblog/tags/log/" title="log">log<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/myblog/tags/java-home/" title="java_home">java_home<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/myblog/tags/双击运行/" title="双击运行">双击运行<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/myblog/tags/raspberry/" title="raspberry">raspberry<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/myblog/tags/bash/" title="bash">bash<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	
+	<div class="social-font" class="clearfix">
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2016 
+		
+		<a href="/myblog/about" target="_blank" title="nobody">nobody</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/myblog/js/jquery-2.0.3.min.js"></script>
+<script src="/myblog/js/jquery.imagesloaded.min.js"></script>
+<script src="/myblog/js/gallery.js"></script>
+<script src="/myblog/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/myblog/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/myblog/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?e6d1f421bbc9962127a50488f9ed37d1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="Back to Top"><img src="/myblog/img/scrollup.png"/></a>
+	</div>
+	<script src="/myblog/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+ </html>
