@@ -138,7 +138,7 @@
 
   <div class="article-tags">
   
-  <span></span> <a href="/myblog/tags/misunderstanding/">misunderstanding</a><a href="/myblog/tags/GCC/">GCC</a><a href="/myblog/tags/const/">const</a><a href="/myblog/tags/pointer/">pointer</a>
+  <span></span> <a href="/myblog/tags/GCC/">GCC</a><a href="/myblog/tags/const/">const</a><a href="/myblog/tags/pointer/">pointer</a><a href="/myblog/tags/misunderstanding/">misunderstanding</a>
   </div>
 
 </div>
@@ -207,7 +207,7 @@
 
   <div class="article-tags">
   
-  <span></span> <a href="/myblog/tags/ubuntu/">ubuntu</a><a href="/myblog/tags/bash/">bash</a><a href="/myblog/tags/misunderstanding/">misunderstanding</a>
+  <span></span> <a href="/myblog/tags/misunderstanding/">misunderstanding</a><a href="/myblog/tags/ubuntu/">ubuntu</a><a href="/myblog/tags/bash/">bash</a>
   </div>
 
 </div>
@@ -560,7 +560,7 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/myblog/2016/06/24/ubuntu_diary_03/" title="Ubuntu日记03-APT Log" itemprop="url">Ubuntu日记03-APT Log</a>
+      <a href="/myblog/2016/06/24/ubuntu_diary_02/" title="Ubuntu日记02-WIFI hotspot" itemprop="url">Ubuntu日记02-WIFI hotspot</a>
   </h1>
   <p class="article-author">By
        
@@ -573,11 +573,10 @@
 </header>
     <div class="article-content">
         
-        <h1 id="关于APT-Log"><a href="#关于APT-Log" class="headerlink" title="关于APT Log"></a>关于APT Log</h1><p><strong>2016.4.6 晚 重庆 阴</strong></p>
-<p>下午干了一件很刺激的事：apt-get autoremove<br>一下将很多的软件包给删了。当时就觉得不对，于是上网一搜吓得我一身冷汗。</p>
-<p>因为重启后发现自己的网络管理也打不开了，更别说用VPN去google，这时候我想到了BING,搜到了怎么找到apt操作的历史：<a href="http://ubuntuforums.org/showthread.php?t=2258741" target="_blank" rel="external">http://ubuntuforums.org/showthread.php?t=2258741</a></p>
-<p>于是自己写了一个简单的python脚本，用来将历史中的autoremove包名总结出来。最后再apt-get install.</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#从history.log中找到的当时autoremove卸载的包，内容省略</span></div><div class="line">packages = <span class="string">"libqt5script5:amd64 (5.4.2+dfsg-4), libkf5completion5:amd64 (5.15.0-0ubuntu1), kpackagelauncherqml:amd64 (5.15.0-0ubuntu1), libfam0:amd64 (2.7.0-17.1)..."</span></div><div class="line"></div><div class="line">final_string = <span class="string">""</span></div><div class="line"><span class="keyword">for</span> package <span class="keyword">in</span> packages.split(<span class="string">","</span>):</div><div class="line">    final_string += package.split(<span class="string">":"</span>)[<span class="number">0</span>]</div><div class="line"><span class="keyword">print</span> final_string</div></pre></td></tr></table></figure>
+        <h1 id="ubuntu-15-10-wifi-hotspot"><a href="#ubuntu-15-10-wifi-hotspot" class="headerlink" title="ubuntu 15.10 wifi hotspot"></a>ubuntu 15.10 wifi hotspot</h1><p><strong>2016.4.6 重庆 阴</strong></p>
+<p>我想说的是在ubuntu上开wifi热点真是麻烦。原来有ap-hotspot，然后就去查了一下发现已停止更新了，并且15.10的没有安装源。然后我就找到了他推荐的create_ap.</p>
+<p>安装倒是很简单，但是使用时会报错，表示没有找到hostapd，然后在工程的howto路径找到了解决方法。（注意：命令行有一定出入，因为使用的时gitclone所以可能有版本更新，所以把命令中的版本号改成相应的就行了）然后在make时报错：fatal error: netlink/genl/genl.h: No such file or directory.然后找到了相应解决方法.然后就运行create_ap wlxe84e062010e1 enp3s0 ahaha 789456123 就行了。</p>
+<p>总结，自己真能折腾。折腾中发现了apt-file这个工具，可以寻找缺失的dependecies.</p>
 
         
         
@@ -596,7 +595,70 @@
 
   <div class="article-tags">
   
-  <span></span> <a href="/myblog/tags/ubuntu/">ubuntu</a><a href="/myblog/tags/apt/">apt</a><a href="/myblog/tags/log/">log</a>
+  <span></span> <a href="/myblog/tags/ubuntu/">ubuntu</a><a href="/myblog/tags/wifi/">wifi</a><a href="/myblog/tags/hotspot/">hotspot</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/myblog/2016/06/24/ubuntu_diary_04/" title="Ubuntu日记04-JAVA安装" itemprop="url">Ubuntu日记04-JAVA安装</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/myblog/about" title="nobody" target="_blank" itemprop="author">nobody</a>
+		
+  <p class="article-time">
+    <time datetime="2016-06-23T16:00:00.000Z" itemprop="datePublished"> Published 2016-06-24</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h1 id="关于安装Oracle-Java"><a href="#关于安装Oracle-Java" class="headerlink" title="关于安装Oracle Java"></a>关于安装Oracle Java</h1><p>今天需要安装Oracle的JAVA8，不需要将openjdk卸载，可直接安装oracle java8 installer.</p>
+<p>然后为了找到installer把jdk安装到哪了，用which javac找到javac symbolic link，然后一直file，直到找到最后的javac位置.</p>
+<p>关于java版本的选择</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo update-alternatives --config java</div><div class="line">sudo update-alternatives --config javac</div></pre></td></tr></table></figure>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/myblog/categories/Ubuntu日记/">Ubuntu日记</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/myblog/tags/ubuntu/">ubuntu</a><a href="/myblog/tags/java-home/">java_home</a>
   </div>
 
 </div>
@@ -694,7 +756,7 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/myblog/2016/06/24/ubuntu_diary_04/" title="Ubuntu日记04-JAVA安装" itemprop="url">Ubuntu日记04-JAVA安装</a>
+      <a href="/myblog/2016/06/24/ubuntu_diary_03/" title="Ubuntu日记03-APT Log" itemprop="url">Ubuntu日记03-APT Log</a>
   </h1>
   <p class="article-author">By
        
@@ -707,10 +769,11 @@
 </header>
     <div class="article-content">
         
-        <h1 id="关于安装Oracle-Java"><a href="#关于安装Oracle-Java" class="headerlink" title="关于安装Oracle Java"></a>关于安装Oracle Java</h1><p>今天需要安装Oracle的JAVA8，不需要将openjdk卸载，可直接安装oracle java8 installer.</p>
-<p>然后为了找到installer把jdk安装到哪了，用which javac找到javac symbolic link，然后一直file，直到找到最后的javac位置.</p>
-<p>关于java版本的选择</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo update-alternatives --config java</div><div class="line">sudo update-alternatives --config javac</div></pre></td></tr></table></figure>
+        <h1 id="关于APT-Log"><a href="#关于APT-Log" class="headerlink" title="关于APT Log"></a>关于APT Log</h1><p><strong>2016.4.6 晚 重庆 阴</strong></p>
+<p>下午干了一件很刺激的事：apt-get autoremove<br>一下将很多的软件包给删了。当时就觉得不对，于是上网一搜吓得我一身冷汗。</p>
+<p>因为重启后发现自己的网络管理也打不开了，更别说用VPN去google，这时候我想到了BING,搜到了怎么找到apt操作的历史：<a href="http://ubuntuforums.org/showthread.php?t=2258741" target="_blank" rel="external">http://ubuntuforums.org/showthread.php?t=2258741</a></p>
+<p>于是自己写了一个简单的python脚本，用来将历史中的autoremove包名总结出来。最后再apt-get install.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#从history.log中找到的当时autoremove卸载的包，内容省略</span></div><div class="line">packages = <span class="string">"libqt5script5:amd64 (5.4.2+dfsg-4), libkf5completion5:amd64 (5.15.0-0ubuntu1), kpackagelauncherqml:amd64 (5.15.0-0ubuntu1), libfam0:amd64 (2.7.0-17.1)..."</span></div><div class="line"></div><div class="line">final_string = <span class="string">""</span></div><div class="line"><span class="keyword">for</span> package <span class="keyword">in</span> packages.split(<span class="string">","</span>):</div><div class="line">    final_string += package.split(<span class="string">":"</span>)[<span class="number">0</span>]</div><div class="line"><span class="keyword">print</span> final_string</div></pre></td></tr></table></figure>
 
         
         
@@ -729,70 +792,7 @@
 
   <div class="article-tags">
   
-  <span></span> <a href="/myblog/tags/ubuntu/">ubuntu</a><a href="/myblog/tags/java-home/">java_home</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/myblog/2016/06/24/ubuntu_diary_02/" title="Ubuntu日记02-WIFI hotspot" itemprop="url">Ubuntu日记02-WIFI hotspot</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/myblog/about" title="nobody" target="_blank" itemprop="author">nobody</a>
-		
-  <p class="article-time">
-    <time datetime="2016-06-23T16:00:00.000Z" itemprop="datePublished"> Published 2016-06-24</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <h1 id="ubuntu-15-10-wifi-hotspot"><a href="#ubuntu-15-10-wifi-hotspot" class="headerlink" title="ubuntu 15.10 wifi hotspot"></a>ubuntu 15.10 wifi hotspot</h1><p><strong>2016.4.6 重庆 阴</strong></p>
-<p>我想说的是在ubuntu上开wifi热点真是麻烦。原来有ap-hotspot，然后就去查了一下发现已停止更新了，并且15.10的没有安装源。然后我就找到了他推荐的create_ap.</p>
-<p>安装倒是很简单，但是使用时会报错，表示没有找到hostapd，然后在工程的howto路径找到了解决方法。（注意：命令行有一定出入，因为使用的时gitclone所以可能有版本更新，所以把命令中的版本号改成相应的就行了）然后在make时报错：fatal error: netlink/genl/genl.h: No such file or directory.然后找到了相应解决方法.然后就运行create_ap wlxe84e062010e1 enp3s0 ahaha 789456123 就行了。</p>
-<p>总结，自己真能折腾。折腾中发现了apt-file这个工具，可以寻找缺失的dependecies.</p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/myblog/categories/Ubuntu日记/">Ubuntu日记</a>
-</div>
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/myblog/tags/ubuntu/">ubuntu</a><a href="/myblog/tags/wifi/">wifi</a><a href="/myblog/tags/hotspot/">hotspot</a>
+  <span></span> <a href="/myblog/tags/ubuntu/">ubuntu</a><a href="/myblog/tags/apt/">apt</a><a href="/myblog/tags/log/">log</a>
   </div>
 
 </div>
@@ -868,19 +868,7 @@
 			
 		
 			
-				<li><a href="/myblog/tags/wifi/" title="wifi">wifi<sup>2</sup></a></li>
-			
-		
-			
 				<li><a href="/myblog/tags/recovery/" title="recovery">recovery<sup>2</sup></a></li>
-			
-		
-			
-				<li><a href="/myblog/tags/passwd/" title="passwd">passwd<sup>2</sup></a></li>
-			
-		
-			
-				<li><a href="/myblog/tags/hotspot/" title="hotspot">hotspot<sup>2</sup></a></li>
 			
 		
 			
@@ -888,19 +876,15 @@
 			
 		
 			
-				<li><a href="/myblog/tags/test/" title="test">test<sup>1</sup></a></li>
+				<li><a href="/myblog/tags/passwd/" title="passwd">passwd<sup>2</sup></a></li>
 			
 		
 			
-				<li><a href="/myblog/tags/apt/" title="apt">apt<sup>1</sup></a></li>
+				<li><a href="/myblog/tags/wifi/" title="wifi">wifi<sup>2</sup></a></li>
 			
 		
 			
-				<li><a href="/myblog/tags/log/" title="log">log<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/myblog/tags/source/" title="source">source<sup>1</sup></a></li>
+				<li><a href="/myblog/tags/hotspot/" title="hotspot">hotspot<sup>2</sup></a></li>
 			
 		
 			
@@ -908,23 +892,15 @@
 			
 		
 			
-				<li><a href="/myblog/tags/双击运行/" title="双击运行">双击运行<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/myblog/tags/java-home/" title="java_home">java_home<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/myblog/tags/raspberry/" title="raspberry">raspberry<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/myblog/tags/bash/" title="bash">bash<sup>1</sup></a></li>
+				<li><a href="/myblog/tags/test/" title="test">test<sup>1</sup></a></li>
 			
 		
 			
 				<li><a href="/myblog/tags/build/" title="build">build<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/myblog/tags/source/" title="source">source<sup>1</sup></a></li>
 			
 		
 			
@@ -937,6 +913,30 @@
 		
 			
 				<li><a href="/myblog/tags/pointer/" title="pointer">pointer<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/myblog/tags/apt/" title="apt">apt<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/myblog/tags/log/" title="log">log<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/myblog/tags/java-home/" title="java_home">java_home<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/myblog/tags/双击运行/" title="双击运行">双击运行<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/myblog/tags/raspberry/" title="raspberry">raspberry<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/myblog/tags/bash/" title="bash">bash<sup>1</sup></a></li>
 			
 		
 		</ul>
