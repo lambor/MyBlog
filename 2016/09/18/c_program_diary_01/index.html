@@ -23,7 +23,7 @@ const修饰字符串指针1234567const char *o = &quot;hello there">
 开始拾起原来的一些东西，并且纠正自己原来一些不够深入的理解,从C语言开始。
 const关键字C中的const关键字和JAVA中的final关键字有着相似的功能，表示被修饰的对象（不是面向对象中的”对象”）的内容不会变化，被修饰的函数不会有副作用。
 const修饰字符串指针1234567const char *o = &quot;hello there">
-<meta property="og:updated_time" content="2016-09-18T08:15:59.000Z">
+<meta property="og:updated_time" content="2016-09-20T07:48:34.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C program 日记01-理解const和引出的问题">
 <meta name="twitter:description" content="理解const和引出的问题2016.9.18 重庆 多云
@@ -57,7 +57,7 @@ const修饰字符串指针1234567const char *o = &quot;hello there">
 				<h1 class="site-name"><a href="/myblog/" title="Blogs">Blogs</a></h1>
 				<h2 class="blog-motto"></h2>
 			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
 			</a></div>
 			<nav class="animated">
 				<ul>
@@ -73,7 +73,7 @@ const修饰字符串指针1234567const char *o = &quot;hello there">
  					
 					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
 						<label>Search</label>
-						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
 						<input type="hidden" name="q" value="site:lambor.github.io/myblog">
 					</form>
 					
@@ -96,14 +96,14 @@ const修饰字符串指针1234567const char *o = &quot;hello there">
 		<a href="/myblog/about" title="nobody" target="_blank" itemprop="author">nobody</a>
 		
   <p class="article-time">
-    <time datetime="2016-09-18T09:10:25.141Z" itemprop="datePublished"> 发表于 2016-09-18</time>
+    <time datetime="2016-09-17T16:00:00.000Z" itemprop="datePublished"> Published 2016-09-18</time>
     
   </p>
 </header>
 	<div class="article-content">
 		
 		<div id="toc" class="toc-article">
-			<strong class="toc-title">文章目录</strong>
+			<strong class="toc-title">Contents</strong>
 		
 			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#理解const和引出的问题"><span class="toc-number">1.</span> <span class="toc-text">理解const和引出的问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#const关键字"><span class="toc-number">1.0.1.</span> <span class="toc-text">const关键字</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#const修饰字符串指针"><span class="toc-number">1.0.2.</span> <span class="toc-text">const修饰字符串指针</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#对指针的一点理解"><span class="toc-number">1.0.3.</span> <span class="toc-text">对指针的一点理解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#关于segment-fault"><span class="toc-number">1.0.4.</span> <span class="toc-text">关于segment fault</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#关于mutable-characters"><span class="toc-number">1.0.5.</span> <span class="toc-text">关于mutable characters</span></a></li></ol></li></ol></li></ol>
 		
@@ -121,27 +121,23 @@ const修饰字符串指针1234567const char *o = &quot;hello there">
 <h3 id="对指针的一点理解"><a href="#对指针的一点理解" class="headerlink" title="对指针的一点理解"></a>对指针的一点理解</h3><p>原来我以为<code>char *</code>可以看作是一种数据类型，比如字符串指针类型，这是当时的有偏差的理解，其实<code>*</code>一直都是指针运算符，且<code>*</code>运算符的优先级大于<code>=</code>，所以我认为此处<code>char *o = &quot;hello there&quot;;</code>先声明了”指针变量”<code>o</code>,并且要赋值<code>o</code>,但用户没有能力来管理指针<code>o</code>的确值，所以c语言就提供了间接的方式，及<code>*o = &quot;hello there&quot;</code>，及指针<code>o</code>的取值是字符串”hello there”的地址，然后使用<code>char</code>来限定使用<code>*(o+1)</code>,<code>o[1]</code>来取值时值存储大小，偏移大小等问题。</p>
 <h3 id="关于segment-fault"><a href="#关于segment-fault" class="headerlink" title="关于segment fault"></a>关于segment fault</h3><p>维基百科对于<a href="https://en.wikipedia.org/wiki/Segmentation_fault" target="_blank" rel="external">segment fault</a>造成的原因有列举:</p>
 <blockquote>
-<ol>
-<li>Writing to read-only memory</li>
-<li>Null pointer dereference</li>
-<li>Buffer overflow</li>
-<li>Stack overflow</li>
-</ol>
+<p>1.Writing to read-only memory<br>2.Null pointer dereference<br>3.Buffer overflow<br>4.Stack overflow</p>
 </blockquote>
 <p>对于第三种<code>q[0] = &#39;q&#39;;</code>，发生segment fault的原因是上述第一种原因。<br>使用<code>strace</code>或者<code>gdb</code>分析程序出错原因。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"># part of gdb output</div><div class="line">(gdb) r</div><div class="line">Starting program: /home/lambor/test/test_const/a.out </div><div class="line"></div><div class="line">Program received signal SIGSEGV, Segmentation fault.</div><div class="line">0x0000000000400501 in main () at test.c:3</div><div class="line">3		q[0] = &apos;q&apos;;</div><div class="line">(gdb) print q</div><div class="line">$1 = 0x400594 &quot;hello there&quot;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"># part of gdb output</div><div class="line">(gdb) r</div><div class="line">Starting program: /home/lambor/test/test_const/a.out </div><div class="line">Program received signal SIGSEGV, Segmentation fault.</div><div class="line">0x0000000000400501 in main () at test.c:3</div><div class="line">3		q[0] = &apos;q&apos;;</div><div class="line">(gdb) print q</div><div class="line">$1 = 0x400594 &quot;hello there&quot;</div></pre></td></tr></table></figure>
 <p>发现错误代码时，变量<code>q</code>的值为0x400594，即字符串”hello there”分布在内存0x400594处。</p>
-<p>然后使用<code>objdump</code>来查看程序的段分布。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"># part of objdump output</div><div class="line">$ objdump -h ./a.out</div><div class="line"></div><div class="line">Idx Name          Size      VMA               LMA               File off  Algn</div><div class="line">...</div><div class="line"> 14 .rodata       00000012  0000000000400590  0000000000400590  00000590  2**2</div><div class="line">                  CONTENTS, ALLOC, LOAD, READONLY, DATA</div><div class="line">...</div></pre></td></tr></table></figure>
+<p>然后使用<code>objdump</code>来查看程序的段分布。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"># part of objdump output</div><div class="line">$ objdump -h ./a.out</div><div class="line">Idx Name          Size      VMA               LMA               File off  Algn</div><div class="line">...</div><div class="line"> 14 .rodata       00000012  0000000000400590  0000000000400590  00000590  2**2</div><div class="line">                  CONTENTS, ALLOC, LOAD, READONLY, DATA</div><div class="line">...</div></pre></td></tr></table></figure></p>
 <p>所以字符串”hello there” 位于 “.rodata” 段,数据是只读, 所以修改会触发segment fault。</p>
-<h3 id="关于mutable-characters"><a href="#关于mutable-characters" class="headerlink" title="关于mutable characters"></a>关于mutable characters</h3><p>我首先想到 gcc 的 “<strong>attribute</strong>“机制，将数据放入 writeable 段中，比如”.data”段</p>
-<p>首先 <strong>attribute</strong>((section())) 不能修饰局部变量。</p>
-<p>我的两种<strong>错误</strong>尝试：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">char * const q = &quot;hello, world!&quot; __attribute__((section(&quot;.data&quot;)));</div></pre></td></tr></table></figure></p>
-<p>语法不正确，编译不通过的。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">char * const q __attribute__((section(&quot;.data&quot;))) = &quot;hello, world!&quot; ;</div></pre></td></tr></table></figure></p>
+<h3 id="关于mutable-characters"><a href="#关于mutable-characters" class="headerlink" title="关于mutable characters"></a>关于mutable characters</h3><p>我首先想到 gcc 的 “attribute“机制，将数据放入 writeable 段中，比如”.data”段</p>
+<p>首先 attribute((section())) 不能修饰局部变量。</p>
+<p>我的两种错误尝试：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">char * const q = &quot;hello, world!&quot; __attribute__((section(&quot;.data&quot;)));</div></pre></td></tr></table></figure>
+<p>语法不正确，编译不通过的。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">char * const q __attribute__((section(&quot;.data&quot;))) = &quot;hello, world!&quot; ;</div></pre></td></tr></table></figure>
 <p>语意不正确，而且编译器直接报warning，并忽略。</p>
-<p>后来通过查找，发现<a href="https://gcc.gnu.org/ml/gcc/2005-04/msg01257.html" target="_blank" rel="external">老版本的gcc (version &lt;= 4)支持功能 writeable-strings clarification</a></p>
+<p>后来通过查找，发现<a href="https://gcc.gnu.org/ml/gcc/2005-04/msg01257.html" target="_blank" rel="external">老版本的gcc (version &lt;= 4)支持功能 writeable-strings clarification</a>。</p>
 <p>需要使用”-fwriteable-strings”。但是现在取消了该功能，建议使用</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">char mutable_chars[] = &#123;&quot;hello there&quot;&#125;;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">char mutable_chars[] = &#123;&quot;hello there&quot;&#125;;</div><div class="line">mutable_chars[0] = &apos;p&apos;;</div></pre></td></tr></table></figure>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -155,7 +151,7 @@ const修饰字符串指针1234567const char *o = &quot;hello there">
 
   <div class="article-tags">
   
-  <span></span> <a href="/myblog/tags/gcc/">gcc</a><a href="/myblog/tags/const/">const</a><a href="/myblog/tags/segment-fault/">segment_fault</a><a href="/myblog/tags/misunderstanding/">misunderstanding</a>
+  <span></span> <a href="/myblog/tags/misunderstanding/">misunderstanding</a><a href="/myblog/tags/GCC/">GCC</a><a href="/myblog/tags/const/">const</a><a href="/myblog/tags/pointer/">pointer</a>
   </div>
 
 </div>
@@ -177,19 +173,11 @@ const修饰字符串指针1234567const char *o = &quot;hello there">
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/myblog/2016/09/18/hello-world/" title="Hello World">
-  <strong>上一篇：</strong><br/>
-  <span>
-  Hello World</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/myblog/2016/09/18/android_source_01/"  title="Android源码分析01-源码编译">
+<a href="/myblog/2016/09/01/ubuntu_diary_08/"  title="Ubuntu日记08-对bash的一些错误认识">
  <strong>下一篇：</strong><br/> 
- <span>Android源码分析01-源码编译
+ <span>Ubuntu日记08-对bash的一些错误认识
 </span>
 </a>
 </div>
@@ -199,17 +187,17 @@ const修饰字符串指针1234567const char *o = &quot;hello there">
 	
 
 </div>  
-      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
 
   <div id="toc" class="toc-aside">
-  <strong class="toc-title">文章目录</strong>
+  <strong class="toc-title">Contents</strong>
  
  <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#理解const和引出的问题"><span class="toc-number">1.</span> <span class="toc-text">理解const和引出的问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#const关键字"><span class="toc-number">1.0.1.</span> <span class="toc-text">const关键字</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#const修饰字符串指针"><span class="toc-number">1.0.2.</span> <span class="toc-text">const修饰字符串指针</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#对指针的一点理解"><span class="toc-number">1.0.3.</span> <span class="toc-text">对指针的一点理解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#关于segment-fault"><span class="toc-number">1.0.4.</span> <span class="toc-text">关于segment fault</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#关于mutable-characters"><span class="toc-number">1.0.5.</span> <span class="toc-text">关于mutable characters</span></a></li></ol></li></ol></li></ol>
  
   </div>
 
 <div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
 <aside class="clearfix">
 
   
@@ -217,7 +205,7 @@ const修饰字符串指针1234567const char *o = &quot;hello there">
 
   
 <div class="categorieslist">
-	<p class="asidetitle">分类</p>
+	<p class="asidetitle">Categories</p>
 		<ul>
 		
 		  
@@ -246,7 +234,7 @@ const修饰字符串指针1234567const char *o = &quot;hello there">
 
   
 <div class="tagslist">
-	<p class="asidetitle">标签</p>
+	<p class="asidetitle">Tags</p>
 		<ul class="clearfix">
 		
 			
@@ -254,11 +242,11 @@ const修饰字符串指针1234567const char *o = &quot;hello there">
 			
 		
 			
-				<li><a href="/myblog/tags/recovery/" title="recovery">recovery<sup>2</sup></a></li>
+				<li><a href="/myblog/tags/wifi/" title="wifi">wifi<sup>2</sup></a></li>
 			
 		
 			
-				<li><a href="/myblog/tags/misunderstanding/" title="misunderstanding">misunderstanding<sup>2</sup></a></li>
+				<li><a href="/myblog/tags/recovery/" title="recovery">recovery<sup>2</sup></a></li>
 			
 		
 			
@@ -266,39 +254,15 @@ const修饰字符串指针1234567const char *o = &quot;hello there">
 			
 		
 			
-				<li><a href="/myblog/tags/wifi/" title="wifi">wifi<sup>2</sup></a></li>
-			
-		
-			
 				<li><a href="/myblog/tags/hotspot/" title="hotspot">hotspot<sup>2</sup></a></li>
 			
 		
 			
-				<li><a href="/myblog/tags/android/" title="android">android<sup>1</sup></a></li>
+				<li><a href="/myblog/tags/misunderstanding/" title="misunderstanding">misunderstanding<sup>2</sup></a></li>
 			
 		
 			
 				<li><a href="/myblog/tags/test/" title="test">test<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/myblog/tags/build/" title="build">build<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/myblog/tags/source/" title="source">source<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/myblog/tags/gcc/" title="gcc">gcc<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/myblog/tags/const/" title="const">const<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/myblog/tags/segment-fault/" title="segment_fault">segment_fault<sup>1</sup></a></li>
 			
 		
 			
@@ -310,11 +274,19 @@ const修饰字符串指针1234567const char *o = &quot;hello there">
 			
 		
 			
-				<li><a href="/myblog/tags/java-home/" title="java_home">java_home<sup>1</sup></a></li>
+				<li><a href="/myblog/tags/source/" title="source">source<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/myblog/tags/android/" title="android">android<sup>1</sup></a></li>
 			
 		
 			
 				<li><a href="/myblog/tags/双击运行/" title="双击运行">双击运行<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/myblog/tags/java-home/" title="java_home">java_home<sup>1</sup></a></li>
 			
 		
 			
@@ -323,6 +295,22 @@ const修饰字符串指针1234567const char *o = &quot;hello there">
 		
 			
 				<li><a href="/myblog/tags/bash/" title="bash">bash<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/myblog/tags/build/" title="build">build<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/myblog/tags/GCC/" title="GCC">GCC<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/myblog/tags/const/" title="const">const<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/myblog/tags/pointer/" title="pointer">pointer<sup>1</sup></a></li>
 			
 		
 		</ul>
@@ -539,7 +527,7 @@ var _hmt = _hmt || [];
 <!-- Totop Begin -->
 
 	<div id="totop">
-	<a title="返回顶部"><img src="/myblog/img/scrollup.png"/></a>
+	<a title="Back to Top"><img src="/myblog/img/scrollup.png"/></a>
 	</div>
 	<script src="/myblog/js/totop.js"></script>
 

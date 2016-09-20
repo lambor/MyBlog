@@ -44,7 +44,7 @@
 				<h1 class="site-name"><a href="/myblog/" title="Blogs">Blogs</a></h1>
 				<h2 class="blog-motto"></h2>
 			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
 			</a></div>
 			<nav class="animated">
 				<ul>
@@ -60,7 +60,7 @@
  					
 					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
 						<label>Search</label>
-						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
 						<input type="hidden" name="q" value="site:lambor.github.io/myblog">
 					</form>
 					
@@ -78,84 +78,20 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/myblog/2016/09/18/android_source_01/" title="Android源码分析01-源码编译" itemprop="url">Android源码分析01-源码编译</a>
+      <a href="/myblog/2016/06/23/hello-world/" title="Hello World" itemprop="url">Hello World</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/myblog/about" title="nobody" target="_blank" itemprop="author">nobody</a>
 		
   <p class="article-time">
-    <time datetime="2016-09-18T09:10:25.133Z" itemprop="datePublished"> 发表于 2016-09-18</time>
+    <time datetime="2016-06-22T16:00:00.000Z" itemprop="datePublished"> Published 2016-06-23</time>
     
   </p>
 </header>
     <div class="article-content">
         
-        <h1 id="源码编译"><a href="#源码编译" class="headerlink" title="源码编译"></a>源码编译</h1><p>买了《Android源码情景分析》，于是就照着书上过一遍源码，熟悉一下底层。</p>
-<h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><p>摘自<a href="http://www.jianshu.com/p/367f0886e62b" target="_blank" rel="external">自己动手编译Android源码(超详细</a>,关于最新环境配置，详情见该文章。</p>
-<table>
-<thead>
-<tr>
-<th>Android版本</th>
-<th>编译要求的Ubuntu最低版本</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Android 6.0至AOSP master</td>
-<td>Ubuntu 14.04</td>
-</tr>
-<tr>
-<td>Android 2.3.x至Android 5.x</td>
-<td>Ubuntu 12.04</td>
-</tr>
-<tr>
-<td>Android 1.5至Android 2.2.x</td>
-<td>Ubuntu 10.04</td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr>
-<th>Android版本</th>
-<th>编译要求的JDK版本</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>AOSP的Android主线</td>
-<td>OpenJDK 8</td>
-</tr>
-<tr>
-<td>Android 5.x至android 6.0</td>
-<td>OpenJDK 7</td>
-</tr>
-<tr>
-<td>Android 2.3.x至Android 4.4.x</td>
-<td>Oracle JDK 6</td>
-</tr>
-<tr>
-<td>Android 1.5至Android 2.2.x</td>
-<td>Oracle JDK 5</td>
-</tr>
-</tbody>
-</table>
-<h3 id="安装虚拟机"><a href="#安装虚拟机" class="headerlink" title="安装虚拟机"></a>安装虚拟机</h3><p>书中使用的是android2.3.1_r1，所以我使用的是ubuntu12.04-desktop(server版本好像不能安装增强模块，不能使用共享文件夹),java版本为oracle jdk 6。<br>因为我在ubuntu15.10下工作，所以使用virtualbox虚拟机(在ubuntu15.10下编译会报make错误)。<br>使用虚拟机时，使用USB和共享文件夹功能需要安装增强模块。<br>推荐使用共享文件夹，因为USB在编译时遇到execute权限问题,解决起来很麻烦。<br>在进入共享文件夹时，会遇到权限问题，这时只需要</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ sudo usermod +a +G vboxsf &lt;USERNAME&gt;</div><div class="line">$ groups &lt;USERNAME&gt;</div></pre></td></tr></table></figure>
-<h3 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h3><p>根据<a href="https://source.android.com/source/initializing.html" target="_blank" rel="external">官网</a>的提示安装ubuntu12.04依赖时，<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$ sudo apt-get install git gnupg flex bison gperf build-essential \</div><div class="line">  zip curl libc6-dev libncurses5-dev:i386 x11proto-core-dev \</div><div class="line">  libx11-dev:i386 libreadline6-dev:i386 libgl1-mesa-glx:i386 \</div><div class="line">  libgl1-mesa-dev g++-multilib mingw32 tofrodos \</div><div class="line">  python-markdown libxml2-utils xsltproc zlib1g-dev:i386</div><div class="line">$ sudo ln -s /usr/lib/i386-linux-gnu/mesa/libGL.so.1 /usr/lib/i386-linux-gnu/libGL.so</div></pre></td></tr></table></figure></p>
-<p>会出现重启虚拟机后不能进入GUI桌面。</p>
-<p>解决方法是<a href="http://stackoverflow.com/questions/23254439/android-setting-up-a-linux-build-environment-libgl1-mesa-glxi386-package-have" target="_blank" rel="external">http://stackoverflow.com/questions/23254439/android-setting-up-a-linux-build-environment-libgl1-mesa-glxi386-package-have</a></p>
-<p>然而我是在<strong>安装依赖之前</strong>直接将启动模式改为命令行模式。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ sudo nano /etc/default/grub</div><div class="line">- GRUB_CMDLINE_LINUX_DEFAULT=&quot;quiet splash&quot;</div><div class="line">+ GRUB_CMDLINE_LINUX_DEFAULT=&quot;text&quot;</div><div class="line">$ sudo update-grub</div></pre></td></tr></table></figure>
-<h3 id="安装Oracle-Java"><a href="#安装Oracle-Java" class="headerlink" title="安装Oracle Java"></a>安装Oracle Java</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ sudo add-apt-repository ppa:webupd8team/java</div><div class="line">$ sudo apt-get update</div><div class="line">$ sudo apt-get install oracle-java6-installer</div></pre></td></tr></table></figure>
-<h2 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ source build/envsetup.sh</div><div class="line">$ lunch</div><div class="line">$ make</div><div class="line">$ emulator</div></pre></td></tr></table></figure>
-<h3 id="编译遇到的问题"><a href="#编译遇到的问题" class="headerlink" title="编译遇到的问题"></a>编译遇到的问题</h3><p>编译过程中会遇到ln创建symbolic link错误，报错原因为read-only filesystem。<br>是因为VirtualBox使用的share folder。解决方法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ VBoxManage setextradata android12.04 VBoxInternal2/SharedFoldersEnableSymlinksCreate/android_base 1</div></pre></td></tr></table></figure></p>
-<h3 id="运行时遇到的问题"><a href="#运行时遇到的问题" class="headerlink" title="运行时遇到的问题"></a>运行时遇到的问题</h3><p>由于我是直接make，而不是lunch，所以没有emulator的使用环境。于是需要通过<br>命令行来设置环境 <code>emulator_env_set.sh</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">#!/bin/bash</div><div class="line">set PWD=&quot;`pwd`&quot;</div><div class="line">PATH=$PATH:$PWD/out/host/linux-x86/bin</div><div class="line">export ANDROID_PRODUCT_OUT=$PWD/out/target/product/generic</div></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ sudo chmod +x ./emulator_env_set.sh</div><div class="line">$ source ./emulator_env_set.sh</div><div class="line">$ emulator</div></pre></td></tr></table></figure>
-<p>由于我是在宿主机中运行emulator，而在虚拟机中编译（我的虚拟机是命令行，不能运行）,<br>所以没有相应的运行环境，所以会报错 SDL init failure, reason is: No available video device<br>解决方法：<a href="http://stackoverflow.com/questions/4841908/sdl-init-failure-reason-is-no-available-video-device" target="_blank" rel="external">http://stackoverflow.com/questions/4841908/sdl-init-failure-reason-is-no-available-video-device</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install libsdl1.2debian:i386</div></pre></td></tr></table></figure>
-<h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><p>最终显示出android的界面</p>
+        <h1 id="My-First-Blog"><a href="#My-First-Blog" class="headerlink" title="My First Blog"></a>My First Blog</h1><p>Hello World.</p>
 
         
         
@@ -168,13 +104,13 @@
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/myblog/categories/Android源码/">Android源码</a>
+  <a class="article-category-link" href="/myblog/categories/talk/">talk</a>
 </div>
 
 
   <div class="article-tags">
   
-  <span></span> <a href="/myblog/tags/android/">android</a><a href="/myblog/tags/source/">source</a><a href="/myblog/tags/build/">build</a>
+  <span></span> <a href="/myblog/tags/test/">test</a>
   </div>
 
 </div>
@@ -202,10 +138,10 @@
   </nav>
 
 </div>
-      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
 
 <div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
 <aside class="clearfix">
 
   
@@ -213,7 +149,7 @@
 
   
 <div class="categorieslist">
-	<p class="asidetitle">分类</p>
+	<p class="asidetitle">Categories</p>
 		<ul>
 		
 		  
@@ -242,7 +178,7 @@
 
   
 <div class="tagslist">
-	<p class="asidetitle">标签</p>
+	<p class="asidetitle">Tags</p>
 		<ul class="clearfix">
 		
 			
@@ -250,11 +186,11 @@
 			
 		
 			
-				<li><a href="/myblog/tags/recovery/" title="recovery">recovery<sup>2</sup></a></li>
+				<li><a href="/myblog/tags/wifi/" title="wifi">wifi<sup>2</sup></a></li>
 			
 		
 			
-				<li><a href="/myblog/tags/misunderstanding/" title="misunderstanding">misunderstanding<sup>2</sup></a></li>
+				<li><a href="/myblog/tags/recovery/" title="recovery">recovery<sup>2</sup></a></li>
 			
 		
 			
@@ -262,39 +198,15 @@
 			
 		
 			
-				<li><a href="/myblog/tags/wifi/" title="wifi">wifi<sup>2</sup></a></li>
-			
-		
-			
 				<li><a href="/myblog/tags/hotspot/" title="hotspot">hotspot<sup>2</sup></a></li>
 			
 		
 			
-				<li><a href="/myblog/tags/android/" title="android">android<sup>1</sup></a></li>
+				<li><a href="/myblog/tags/misunderstanding/" title="misunderstanding">misunderstanding<sup>2</sup></a></li>
 			
 		
 			
 				<li><a href="/myblog/tags/test/" title="test">test<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/myblog/tags/build/" title="build">build<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/myblog/tags/source/" title="source">source<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/myblog/tags/gcc/" title="gcc">gcc<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/myblog/tags/const/" title="const">const<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/myblog/tags/segment-fault/" title="segment_fault">segment_fault<sup>1</sup></a></li>
 			
 		
 			
@@ -306,11 +218,19 @@
 			
 		
 			
-				<li><a href="/myblog/tags/java-home/" title="java_home">java_home<sup>1</sup></a></li>
+				<li><a href="/myblog/tags/source/" title="source">source<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/myblog/tags/android/" title="android">android<sup>1</sup></a></li>
 			
 		
 			
 				<li><a href="/myblog/tags/双击运行/" title="双击运行">双击运行<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/myblog/tags/java-home/" title="java_home">java_home<sup>1</sup></a></li>
 			
 		
 			
@@ -319,6 +239,22 @@
 		
 			
 				<li><a href="/myblog/tags/bash/" title="bash">bash<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/myblog/tags/build/" title="build">build<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/myblog/tags/GCC/" title="GCC">GCC<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/myblog/tags/const/" title="const">const<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/myblog/tags/pointer/" title="pointer">pointer<sup>1</sup></a></li>
 			
 		
 		</ul>
@@ -458,7 +394,7 @@ var _hmt = _hmt || [];
 <!-- Totop Begin -->
 
 	<div id="totop">
-	<a title="返回顶部"><img src="/myblog/img/scrollup.png"/></a>
+	<a title="Back to Top"><img src="/myblog/img/scrollup.png"/></a>
 	</div>
 	<script src="/myblog/js/totop.js"></script>
 
