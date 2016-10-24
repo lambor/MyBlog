@@ -4,29 +4,29 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>Ubuntu日记03-APT Log | Blogs</title>
+    <title>周记总结01-2016.10.22 | Blogs</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="nobody">
     
 
     
-    <meta name="description" content="关于APT Log2016.4.6 晚 重庆 阴
-下午干了一件很刺激的事：apt-get autoremove一下将很多的软件包给删了。当时就觉得不对，于是上网一搜吓得我一身冷汗。
-因为重启后发现自己的网络管理也打不开了，更别说用VPN去google，这时候我想到了BING,搜到了怎么找到apt操作的历史：http://ubuntuforums.org/showthread.php?t=22587">
+    <meta name="description" content="第1周总结为了总结一周学习的零碎知识,于是开了这个系列,希望能够每周总结一下坚持下去。
+Linux对Pipe的理解原来对pipe的理解有误解,我以为pipe两边的进程是串行执行的,但读过,发现原来是并行运行的.
+通过实验验证: strace -f bash -c &amp;#39;ls | grep hello&amp;#39;2&amp;gt;&amp;amp;1 | grep –color -E ‘exe|pip|$’`">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Ubuntu日记03-APT Log">
-<meta property="og:url" content="http://lambor.github.io/myblog/2016/06/24/ubuntu_diary_03/index.html">
+<meta property="og:title" content="周记总结01-2016.10.22">
+<meta property="og:url" content="http://lambor.github.io/myblog/2016/10/22/week_note_01/index.html">
 <meta property="og:site_name" content="Blogs">
-<meta property="og:description" content="关于APT Log2016.4.6 晚 重庆 阴
-下午干了一件很刺激的事：apt-get autoremove一下将很多的软件包给删了。当时就觉得不对，于是上网一搜吓得我一身冷汗。
-因为重启后发现自己的网络管理也打不开了，更别说用VPN去google，这时候我想到了BING,搜到了怎么找到apt操作的历史：http://ubuntuforums.org/showthread.php?t=22587">
-<meta property="og:updated_time" content="2016-09-20T07:53:01.000Z">
+<meta property="og:description" content="第1周总结为了总结一周学习的零碎知识,于是开了这个系列,希望能够每周总结一下坚持下去。
+Linux对Pipe的理解原来对pipe的理解有误解,我以为pipe两边的进程是串行执行的,但读过,发现原来是并行运行的.
+通过实验验证: strace -f bash -c &amp;#39;ls | grep hello&amp;#39;2&amp;gt;&amp;amp;1 | grep –color -E ‘exe|pip|$’`">
+<meta property="og:updated_time" content="2016-10-24T07:14:53.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Ubuntu日记03-APT Log">
-<meta name="twitter:description" content="关于APT Log2016.4.6 晚 重庆 阴
-下午干了一件很刺激的事：apt-get autoremove一下将很多的软件包给删了。当时就觉得不对，于是上网一搜吓得我一身冷汗。
-因为重启后发现自己的网络管理也打不开了，更别说用VPN去google，这时候我想到了BING,搜到了怎么找到apt操作的历史：http://ubuntuforums.org/showthread.php?t=22587">
+<meta name="twitter:title" content="周记总结01-2016.10.22">
+<meta name="twitter:description" content="第1周总结为了总结一周学习的零碎知识,于是开了这个系列,希望能够每周总结一下坚持下去。
+Linux对Pipe的理解原来对pipe的理解有误解,我以为pipe两边的进程是串行执行的,但读过,发现原来是并行运行的.
+通过实验验证: strace -f bash -c &amp;#39;ls | grep hello&amp;#39;2&amp;gt;&amp;amp;1 | grep –color -E ‘exe|pip|$’`">
 
     
     <link rel="alternative" href="/atom.xml" title="Blogs" type="application/atom+xml">
@@ -86,14 +86,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/myblog/2016/06/24/ubuntu_diary_03/" title="Ubuntu日记03-APT Log" itemprop="url">Ubuntu日记03-APT Log</a>
+      <a href="/myblog/2016/10/22/week_note_01/" title="周记总结01-2016.10.22" itemprop="url">周记总结01-2016.10.22</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/myblog/about" title="nobody" target="_blank" itemprop="author">nobody</a>
 		
   <p class="article-time">
-    <time datetime="2016-06-23T16:00:00.000Z" itemprop="datePublished"> Published 2016-06-24</time>
+    <time datetime="2016-10-21T16:00:00.000Z" itemprop="datePublished"> Published 2016-10-22</time>
     
   </p>
 </header>
@@ -102,15 +102,30 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#关于APT-Log"><span class="toc-number">1.</span> <span class="toc-text">关于APT Log</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#第1周总结"><span class="toc-number">1.</span> <span class="toc-text">第1周总结</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Linux"><span class="toc-number">1.1.</span> <span class="toc-text">Linux</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#对Pipe的理解"><span class="toc-number">1.1.1.</span> <span class="toc-text">对Pipe的理解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#关于PATH的文件位置"><span class="toc-number">1.1.2.</span> <span class="toc-text">关于PATH的文件位置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#关于应用安装包解压安装位置"><span class="toc-number">1.1.3.</span> <span class="toc-text">关于应用安装包解压安装位置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#挂载网络文件系统"><span class="toc-number">1.1.4.</span> <span class="toc-text">挂载网络文件系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#set和stty"><span class="toc-number">1.1.5.</span> <span class="toc-text">set和stty</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Android"><span class="toc-number">1.2.</span> <span class="toc-text">Android</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Toast"><span class="toc-number">1.2.1.</span> <span class="toc-text">Toast</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Service-amp-AIDL"><span class="toc-number">1.2.2.</span> <span class="toc-text">Service & AIDL</span></a></li></ol></li></ol></li></ol>
 		
 		</div>
 		
-		<h1 id="关于APT-Log"><a href="#关于APT-Log" class="headerlink" title="关于APT Log"></a>关于APT Log</h1><p><strong>2016.4.6 晚 重庆 阴</strong></p>
-<p>下午干了一件很刺激的事：apt-get autoremove<br>一下将很多的软件包给删了。当时就觉得不对，于是上网一搜吓得我一身冷汗。</p>
-<p>因为重启后发现自己的网络管理也打不开了，更别说用VPN去google，这时候我想到了BING,搜到了怎么找到apt操作的历史：<a href="http://ubuntuforums.org/showthread.php?t=2258741" target="_blank" rel="external">http://ubuntuforums.org/showthread.php?t=2258741</a></p>
-<p>于是自己写了一个简单的python脚本，用来将历史中的autoremove包名总结出来。最后再apt-get install.</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#从history.log中找到的当时autoremove卸载的包，内容省略</span></div><div class="line">packages = <span class="string">"libqt5script5:amd64 (5.4.2+dfsg-4), libkf5completion5:amd64 (5.15.0-0ubuntu1), kpackagelauncherqml:amd64 (5.15.0-0ubuntu1), libfam0:amd64 (2.7.0-17.1)..."</span></div><div class="line"></div><div class="line">final_string = <span class="string">""</span></div><div class="line"><span class="keyword">for</span> package <span class="keyword">in</span> packages.split(<span class="string">","</span>):</div><div class="line">    final_string += package.split(<span class="string">":"</span>)[<span class="number">0</span>]</div><div class="line"><span class="keyword">print</span> final_string</div></pre></td></tr></table></figure>
+		<h1 id="第1周总结"><a href="#第1周总结" class="headerlink" title="第1周总结"></a>第1周总结</h1><p>为了总结一周学习的零碎知识,于是开了这个系列,希望能够每周总结一下坚持下去。</p>
+<h2 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h2><h3 id="对Pipe的理解"><a href="#对Pipe的理解" class="headerlink" title="对Pipe的理解"></a>对Pipe的理解</h3><p>原来对pipe的理解有误解,我以为pipe两边的进程是串行执行的,但读过<unix linux编程实践教程="">,发现原来是并行运行的.</unix></p>
+<p>通过实验验证: <code>strace -f bash -c &#39;ls | grep hello&#39;</code>2&gt;&amp;1 | grep –color -E ‘exe|pip|$’`</p>
+<blockquote>
+<p><code>strace -f</code>     follow forks<br><code>bash -c</code>       commands are read from the first non-option argument command_string<br><code>grep -E &quot;$&quot;</code>   every line is grepped</p>
+</blockquote>
+<p>查看输出即可发现<code>ls</code>和<code>grep</code>是同时fork出来的．</p>
+<p>而且发现是先pip的<code>pipe([3,4])</code>，为什么是<code>pipe([3,4])</code>而不是<code>pipe([1,2])</code>呢?</p>
+<p>因为<code>bash -c &quot;command&quot;</code>也是从当前bash fork出来的,所以1,2为当前bash的stdin和stdout.</p>
+<h3 id="关于PATH的文件位置"><a href="#关于PATH的文件位置" class="headerlink" title="关于PATH的文件位置"></a>关于PATH的文件位置</h3><blockquote>
+<p>~/.profile 加载于login shell<br>~/.bashrc  加载于interactive terminal<br>~/.pam_enviroment GUI launcher点击启动加载</p>
+</blockquote>
+<h3 id="关于应用安装包解压安装位置"><a href="#关于应用安装包解压安装位置" class="headerlink" title="关于应用安装包解压安装位置"></a>关于应用安装包解压安装位置</h3><p>unix 推荐<code>/opt/</code> 不会被系统升级覆盖<br>旧的位置<code>/usr/local/bin</code></p>
+<h3 id="挂载网络文件系统"><a href="#挂载网络文件系统" class="headerlink" title="挂载网络文件系统"></a>挂载网络文件系统</h3><p>最近有用虚拟机，没有使用虚拟机提供的共享文件夹功能，而是尝试了一下nfs(network file system)</p>
+<p>首先要在服务端（提供共享）安装nfs,并配置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ apt-get install nfs-kernele-server</div><div class="line">$ apt-get install nfs-common</div><div class="line">$ echo &quot;&lt;share directory path&gt; &lt;allow ips&gt;(rw,sync,no_root_squash)&quot; &gt;&gt; /etc/exports</div></pre></td></tr></table></figure></p>
+<p>然后在客户端安装<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ apt-get install nfs-common</div><div class="line">$ mount -t nfs &lt;server ip&gt;:&lt;server share directory path&gt; &lt;local mount point&gt;</div></pre></td></tr></table></figure></p>
+<h3 id="set和stty"><a href="#set和stty" class="headerlink" title="set和stty"></a>set和stty</h3><p>对于bash built-in command是不能用man来查询的，需要使用help,例如<code>help set</code>.并且help也是built-in command</p>
+<p>stty是设置tty输入输出等相关属性的<br>set是设置shell的一些属性和环境变量的</p>
+<h2 id="Android"><a href="#Android" class="headerlink" title="Android"></a>Android</h2><h3 id="Toast"><a href="#Toast" class="headerlink" title="Toast"></a>Toast</h3><p>Toast 不需要在 UI线程中显示,只需要有Looper环境的线程就行</p>
+<h3 id="Service-amp-AIDL"><a href="#Service-amp-AIDL" class="headerlink" title="Service &amp; AIDL"></a>Service &amp; AIDL</h3><p>虽然<code>onStartCommand</code>中的操作是线程同步的,好象是在UI线程中<br>但是对于使用AIDL中的服务操作,却不是线程同步的.</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -118,13 +133,13 @@
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/myblog/categories/Ubuntu日记/">Ubuntu日记</a>
+  <a class="article-category-link" href="/myblog/categories/周记总结/">周记总结</a>
 </div>
 
 
   <div class="article-tags">
   
-  <span></span> <a href="/myblog/tags/ubuntu/">ubuntu</a><a href="/myblog/tags/apt/">apt</a><a href="/myblog/tags/log/">log</a>
+  <span></span> <a href="/myblog/tags/source/">source</a><a href="/myblog/tags/week-note/">week_note</a>
   </div>
 
 </div>
@@ -133,7 +148,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://lambor.github.io/myblog/myblog/2016/06/24/ubuntu_diary_03/" data-title="Ubuntu日记03-APT Log | Blogs" data-tsina="undefined" class="share clearfix">
+	  <div data-url="http://lambor.github.io/myblog/myblog/2016/10/22/week_note_01/" data-title="周记总结01-2016.10.22 | Blogs" data-tsina="undefined" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -146,19 +161,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/myblog/2016/06/24/ubuntu_diary_04/" title="Ubuntu日记04-JAVA安装">
-  <strong>上一篇：</strong><br/>
-  <span>
-  Ubuntu日记04-JAVA安装</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/myblog/2016/06/24/ubuntu_diary_05/"  title="Ubuntu日记05-双击运行bash">
+<a href="/myblog/2016/10/15/android_source_02/"  title="Android源码分析02-goldfish内核编译">
  <strong>下一篇：</strong><br/> 
- <span>Ubuntu日记05-双击运行bash
+ <span>Android源码分析02-goldfish内核编译
 </span>
 </a>
 </div>
@@ -173,7 +180,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#关于APT-Log"><span class="toc-number">1.</span> <span class="toc-text">关于APT Log</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#第1周总结"><span class="toc-number">1.</span> <span class="toc-text">第1周总结</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Linux"><span class="toc-number">1.1.</span> <span class="toc-text">Linux</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#对Pipe的理解"><span class="toc-number">1.1.1.</span> <span class="toc-text">对Pipe的理解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#关于PATH的文件位置"><span class="toc-number">1.1.2.</span> <span class="toc-text">关于PATH的文件位置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#关于应用安装包解压安装位置"><span class="toc-number">1.1.3.</span> <span class="toc-text">关于应用安装包解压安装位置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#挂载网络文件系统"><span class="toc-number">1.1.4.</span> <span class="toc-text">挂载网络文件系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#set和stty"><span class="toc-number">1.1.5.</span> <span class="toc-text">set和stty</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Android"><span class="toc-number">1.2.</span> <span class="toc-text">Android</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Toast"><span class="toc-number">1.2.1.</span> <span class="toc-text">Toast</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Service-amp-AIDL"><span class="toc-number">1.2.2.</span> <span class="toc-text">Service & AIDL</span></a></li></ol></li></ol></li></ol>
  
   </div>
 
